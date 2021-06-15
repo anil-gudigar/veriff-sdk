@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'org.jetbrains.dokka-android'
+}
+
+
+def configuration = rootProject.ext.configuration
+def libraries = rootProject.ext.libraries
+def kaptLibraries = rootProject.ext.kaptLibraries
+
+android {
+    compileSdkVersion configuration.compileSdkVersion
+    defaultConfig {
+        minSdkVersion configuration.minSdkVersion
+        targetSdkVersion configuration.targetSdkVersion
+        versionCode configuration.appVersionCode
+        versionName configuration.appVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        kotlinOptions { jvmTarget = "1.8" }
+        multiDexEnabled true
+    }
+
+    dokka {
+        outputFormat = 'html'
+        outputDirectory = "$buildDir/javadoc"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/notice.txt'
+    }
+}
+
+dependencies {
+    implementation project(':veriff-core')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    api "$libraries.firebaseml"
+    api "$libraries.mlkittextrecognition"
+    api "$libraries.mlkitfacedetection"
+
+    api "$libraries.androidxcamera2"
+    api "$libraries.androidxcameracore"
+    api "$libraries.androidxcameralifecycle"
+    api "$libraries.androidxcameraview"
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

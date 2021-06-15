@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Veriff</string>
+    <string name="title_picture">Picture</string>
+    <string name="title_face">Face</string>
+    <string name="title_text">Text</string>
+    <string name="no_face">No Face Found, please focus Camera on Face</string>
+    <string name="no_text">No Text Found !!</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_face">
+    <fragment
+        android:id="@+id/navigation_face"
+        android:name="com.veriff.sample.ui.face.FaceRecFragment"
+        android:label="@string/title_face"
+        tools:layout="@layout/fragment_face_rec" />
+    <fragment
+        android:id="@+id/navigation_text"
+        android:name="com.veriff.sample.ui.text.TextRecFragment"
+        android:label="@string/title_text"
+        tools:layout="@layout/fragment_text_rec" />
+
+</navigation>

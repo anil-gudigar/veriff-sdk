@@ -1,0 +1,114 @@
+ext {
+    MAJOR = "major"
+    MINOR = 'minor'
+    PATCH = 'patch'
+    BUILD = 'build'
+
+    configuration = [
+            package          : "com.veriff.sdk.identity",
+            compileSdkVersion: 30,
+            targetSdkVersion : 30,
+            minSdkVersion    : 21
+    ]
+    commonDependencies = [
+            kotlinVersion                    : "1.5.0",
+            appCompatVersion                 : "1.3.0",
+            constraintLayoutVersion          : "1.1.3",
+            archLifeCycleVersion             : "1.1.1",
+            junit4Version                    : "4.12",
+            testRunnerVersion                : "1.0.2",
+            mockKVersion                     : "1.8.13.kotlin13",
+            espressoVersion                  : "3.0.2",
+            androidxlegacyVersion            : "1.0.0",
+            androidxcoreVesrion              : "1.1.0",
+            multidexVersion                  : "2.0.1",
+            runtimeVersion                   : "2.2.0",
+            vectordrawableVersion            : "1.1.0",
+            navigationVersion                : "2.2.1",
+            lifecycleVersion                 : "2.2.0",
+            androidmaterialVersion           : "1.3.0",
+            androidanimationsVersion         : "2.3@aar",
+            firebasecoreVersion              : "17.2.0",
+            firebasemessagingVersion         : "20.1.0",
+            playservicesgcmVersion           : "16.1.0",
+            architectureLifecycleVersion     : "1.1.1",
+            guavaVersion                     : "27.0.1-android",
+            leacysupportversion              : "1.0.0",
+            cameraX                          : "1.0.0-beta07",
+            mlkit                            : "16.1.0",
+            firebaseml                       : "16.1.2",
+            dokkaVersion                     : "0.9.17"
+    ]
+
+
+    libraries = [
+            appCompat                    : "androidx.appcompat:appcompat:${commonDependencies.appCompatVersion}",
+            kotlinStdLib                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${commonDependencies.kotlinVersion}",
+            constraintLayout             : "com.android.support.constraint:constraint-layout:${commonDependencies.constraintLayoutVersion}",
+            recyclerview                 : "com.android.support:recyclerview-v7:${commonDependencies.appCompatVersion}",
+            archLifeCycle                : "android.arch.lifecycle:extensions:${commonDependencies.archLifeCycleVersion}",
+            gson                         : "com.google.code.gson:gson:${commonDependencies.gsonVersion}",
+            androidxlegacy               : "androidx.legacy:legacy-support-v4:${commonDependencies.androidxlegacyVersion}",
+            androidxcore                 : "androidx.core:core:${commonDependencies.androidxcoreVesrion}",
+            corektxandroidx              : "androidx.core:core-ktx:1.3.1",
+            multidex                     : "androidx.multidex:multidex:${commonDependencies.multidexVersion}",
+            androidxwork                 : "androidx.work:work-runtime:${commonDependencies.runtimeVersion}",
+            androidxvectordrawable       : "androidx.vectordrawable:vectordrawable:${commonDependencies.vectordrawableVersion}",
+            architectureLifecycle        : "android.arch.lifecycle:runtime:${commonDependencies.architectureLifecycleVersion}",
+            annotationProcessor          : "android.arch.lifecycle:compiler:${commonDependencies.architectureLifecycleVersion}",
+            guava                        : "com.google.guava:guava:${commonDependencies.guavaVersion}",
+
+            //navigation
+            androidxnavigationfragment   : "androidx.navigation:navigation-fragment:${commonDependencies.navigationVersion}",
+            androidxnavigationui         : "androidx.navigation:navigation-ui:${commonDependencies.navigationVersion}",
+            androidxnavigationfragmentktx: "androidx.navigation:navigation-fragment-ktx:${commonDependencies.navigationVersion}",
+            androidxnavigationuiktx      : "androidx.navigation:navigation-ui-ktx:${commonDependencies.navigationVersion}",
+
+            //lifecycle
+            androidxlifecycleextesion    : "androidx.lifecycle:lifecycle-extensions:${commonDependencies.lifecycleVersion}",
+            androidxlifecycleviewmodel   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${commonDependencies.lifecycleVersion}",
+            lifecyclelivedataktx         : "androidx.lifecycle:lifecycle-livedata-ktx:${commonDependencies.lifecycleVersion}",
+            lifecycleviewmodelktx        : "androidx.lifecycle:lifecycle-viewmodel-ktx:${commonDependencies.lifecycleVersion}",
+
+            androidmaterial              : "com.google.android.material:material:${commonDependencies.androidmaterialVersion}",
+            androidxcamera2              : "androidx.camera:camera-camera2:${commonDependencies.cameraX}",
+            androidxcameracore           : "androidx.camera:camera-core:${commonDependencies.cameraX}",
+            androidxcameralifecycle      : "androidx.camera:camera-lifecycle:${commonDependencies.cameraX}",
+            androidxcameraview           : "androidx.camera:camera-view:1.0.0-alpha14",
+
+            //ml kit
+            mlkittextrecognition         : "com.google.android.gms:play-services-mlkit-text-recognition:${commonDependencies.mlkit}",
+            mlkitfacedetection           : "com.google.android.gms:play-services-mlkit-face-detection:${commonDependencies.mlkit}",
+            //firebase
+            firebaseml                   : "com.google.firebase:firebase-ml-vision-barcode-model:${commonDependencies.firebaseml}",
+            firebasecore                 : "com.google.firebase:firebase-core:${commonDependencies.firebasecoreVersion}",
+            firebasemessaging            : "com.google.firebase:firebase-messaging:${commonDependencies.firebasemessagingVersion}",
+            playservicesgcm              : "com.google.android.gms:play-services-gcm:${commonDependencies.playservicesgcmVersion}",
+
+            lifecycleextensions          : "androidx.lifecycle:lifecycle-extensions:${commonDependencies.lifecycleVersion}",
+            lifecycleruntime             : "androidx.lifecycle:lifecycle-runtime:${commonDependencies.lifecycleVersion}",
+            lifecyclecompiler            : "androidx.lifecycle:lifecycle-compiler:${commonDependencies.lifecycleVersion}",
+            analytics                    : "com.segment.analytics.android:analytics:${commonDependencies.analyticsVersion}",
+            firebaseanalytics            : "com.google.firebase:firebase-analytics:17.2.0",
+            json                         : "com.googlecode.json-simple:json-simple:1.1",
+            leacysupport                 : "androidx.legacy:legacy-support-v4:${commonDependencies.leacysupportversion}",
+            kotlinxCoroutines            : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${commonDependencies.kotlinxCoroutinesVersion}",
+    ]
+    kaptLibraries = [
+            archLifeCycle: "android.arch.lifecycle:compiler:${commonDependencies.archLifeCycleVersion}",
+    ]
+
+    testLibraries = [
+            junit4   : "junit:junit:${commonDependencies.junit4Version}",
+            mockK    : "io.mockk:mockk:${commonDependencies.mockKVersion}",
+            rxKotlin : libraries.rxKotlin,
+            rxAndroid: libraries.rxAndroid
+    ]
+
+    androidTestLibraries = [
+            testRunner: "com.android.support.test:runner:${commonDependencies.testRunnerVersion}",
+            testRules : "com.android.support.test:rules:${commonDependencies.testRunnerVersion}",
+            espresso  : "com.android.support.test.espresso:espresso-core:${commonDependencies.espressoVersion}",
+            mockK     : "io.mockk:mockk-android:${commonDependencies.mockKVersion}"
+    ]
+}

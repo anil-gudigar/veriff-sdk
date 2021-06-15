@@ -1,0 +1,5 @@
+rootProject.name = "Veriff"
+include ':app'
+include ':veriff-identity'
+include ':veriff-components'
+include ':veriff-core'
