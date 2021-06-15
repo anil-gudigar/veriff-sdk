@@ -1,8 +1,6 @@
 package com.veriff.sample.ui.face
 
-import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -22,16 +20,12 @@ import com.veriff.sdk.core.app.VeriffApp
 import com.veriff.sdk.core.util.saveToGallery
 import com.veriff.sdk.identity.VeriffIdentityManager
 import com.veriff.sdk.identity.callback.IdentityCallback
-import kotlinx.coroutines.*
-import java.io.IOException
-import java.io.InputStream
-import java.lang.Runnable
+import kotlinx.coroutines.launch
 
 class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
 
     private lateinit var faceRecViewModel: FaceRecViewModel
     private var _binding: FragmentFaceRecBinding? = null
-    private val job = Job()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -52,21 +46,6 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initVerifyIdentity()
-    }
-
-    private fun facRecFromBitmap(mSelectedImage: Bitmap?) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            mSelectedImage?.let {
-                faceRecViewModel.runFaceDetection(it)
-                    ?.observe(viewLifecycleOwner, Observer { results ->
-                        if (results.isEmpty()) {
-                            Log.i("Anil", "No Face :")
-                        } else {
-                            Log.i("Anil", "Face :" + results.size)
-                        }
-                    })
-            }
-        }
     }
 
     private fun initVerifyIdentity() {
@@ -92,6 +71,21 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
                     faceRecViewModel.visionType,
                     this
                 )
+            }
+        }
+    }
+
+    private fun facRecFromBitmap(mSelectedImage: Bitmap?) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            mSelectedImage?.let {
+                faceRecViewModel.runFaceDetection(it)
+                    ?.observe(viewLifecycleOwner, Observer { results ->
+                        if (results.isEmpty()) {
+                            Log.i("Anil", "No Face :")
+                        } else {
+                            Log.i("Anil", "Face :" + results.size)
+                        }
+                    })
             }
         }
     }

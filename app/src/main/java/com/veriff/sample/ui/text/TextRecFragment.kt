@@ -1,11 +1,8 @@
 package com.veriff.sample.ui.text
 
-import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -24,8 +21,6 @@ import com.veriff.sdk.core.util.saveToGallery
 import com.veriff.sdk.identity.VeriffIdentityManager
 import com.veriff.sdk.identity.callback.IdentityCallback
 import kotlinx.coroutines.launch
-import java.io.IOException
-import java.io.InputStream
 
 class TextRecFragment : Fragment(), IdentityCallback<Text> {
 
@@ -53,20 +48,7 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
         initVerifyIdentity()
     }
 
-    private fun textRecFromBitmap(mSelectedImage: Bitmap?) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            mSelectedImage?.let {
-                textRecViewModel.runTextRecognition(it)
-                    ?.observe(viewLifecycleOwner, Observer { results ->
-                        if (results.text.isEmpty()) {
-                            Log.i("Anil", "No Text :")
-                        } else {
-                            Log.i("Anil", "Text :" + results.text)
-                        }
-                    })
-            }
-        }
-    }
+
 
     private fun initVerifyIdentity() {
 
@@ -91,6 +73,21 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
                     textRecViewModel.visionType,
                     this
                 )
+            }
+        }
+    }
+
+    private fun textRecFromBitmap(mSelectedImage: Bitmap?) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            mSelectedImage?.let {
+                textRecViewModel.runTextRecognition(it)
+                    ?.observe(viewLifecycleOwner, Observer { results ->
+                        if (results.text.isEmpty()) {
+                            Log.i("Anil", "No Text :")
+                        } else {
+                            Log.i("Anil", "Text :" + results.text)
+                        }
+                    })
             }
         }
     }
