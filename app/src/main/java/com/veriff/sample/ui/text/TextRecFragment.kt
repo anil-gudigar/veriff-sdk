@@ -51,8 +51,8 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initVerifyIdentity()
-        val mSelectedImage = context?.let { getBitmapFromAsset(it, "Please_walk_on_the_grass.jpg") }
-        textRecFromBitmap(mSelectedImage)
+       // val mSelectedImage = context?.let { getBitmapFromAsset(it, "Please_walk_on_the_grass.jpg") }
+       // textRecFromBitmap(mSelectedImage)
     }
 
     private fun textRecFromBitmap(mSelectedImage: Bitmap?) {

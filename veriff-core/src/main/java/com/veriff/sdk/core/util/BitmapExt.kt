@@ -47,7 +47,7 @@ fun Bitmap.getBaseYByView(view: View, isHorizontalRotation: Boolean): Float {
  */
 fun Bitmap.saveToGallery(context: Context) :Uri?{
     var pictureURI :Uri?
-    makeTempFile().apply {
+    makeTempFile(context).apply {
         FileOutputStream(this).run {
             this@saveToGallery.compress(Bitmap.CompressFormat.JPEG, 100, this)
             flush()

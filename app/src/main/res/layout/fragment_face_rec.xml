@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.veriff.sample.ui.face.PictureRecFragment">
+    tools:context="com.veriff.sample.ui.face.FaceRecFragment">
     <com.veriff.sdk.components.view.VeriffScannerView
         android:id="@+id/veriffScannerView"
         android:layout_width="match_parent"

@@ -5,8 +5,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +16,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.mlkit.vision.face.Face
-import com.veriff.sample.MainActivity
 import com.veriff.sample.R
 import com.veriff.sample.databinding.FragmentFaceRecBinding
 import com.veriff.sdk.core.app.VeriffApp
@@ -75,6 +72,7 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
     }
 
     private fun initVerifyIdentity() {
+
         faceRecViewModel.checkPermission =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
                 var allPermissionGranted = false

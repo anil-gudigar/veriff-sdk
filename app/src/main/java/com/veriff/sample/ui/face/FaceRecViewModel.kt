@@ -11,7 +11,6 @@ class FaceRecViewModel : ViewModel() {
     internal var checkPermission: ActivityResultLauncher<Array<String>>? = null
     var veriffIdentityManager: VeriffIdentityManager<List<Face>>? = null
     val visionType: VisionType = VisionType.Face
-    var faceData: MutableLiveData<List<Face>> = MutableLiveData()
 
     suspend fun runFaceDetection(image: Bitmap): LiveData<List<Face>>? {
           return  veriffIdentityManager?.runFaceContourDetection(image)

@@ -43,14 +43,15 @@ class CameraManager<T>(
     private var preview: Preview? = null
     private var camera: Camera? = null
     private var cameraProvider: ProcessCameraProvider? = null
-    lateinit var imageCapture: ImageCapture
     private var imageAnalyzer: ImageAnalysis? = null
-    var rotation: Float = 0f
+
     lateinit var cameraExecutor: ExecutorService
+    lateinit var imageCapture: ImageCapture
     lateinit var metrics: DisplayMetrics
 
     private var analyzerVisionType: VisionType = VisionType.Face
-    private var cameraSelectorOption = CameraSelector.LENS_FACING_BACK
+    var rotation: Float = 0f
+    var cameraSelectorOption = CameraSelector.LENS_FACING_BACK
 
     init {
         createNewExecutor()
@@ -138,37 +139,34 @@ class CameraManager<T>(
      */
     fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
-        cameraProviderFuture.addListener({
-            cameraProvider = cameraProviderFuture.get()
-            preview = Preview.Builder().build()
+        cameraProviderFuture.addListener(
+            {
+                cameraProvider = cameraProviderFuture.get()
+                preview = Preview.Builder().build()
 
-            imageAnalyzer = ImageAnalysis.Builder()
-                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-                .build()
-                .also {
-                    it.setAnalyzer(cameraExecutor, selectAnalyzer())
-                }
-
-            val cameraSelector = CameraSelector.Builder()
-                .requireLensFacing(cameraSelectorOption)
-                .build()
-
-            metrics = DisplayMetrics().also { graphicOverlay?.display?.getRealMetrics(it) }
-            Log.i(
-                "Anil",
-                "metrics.widthPixels : " + metrics.widthPixels + " metrics.heightPixels : " + metrics.heightPixels
-            )
-            imageCapture =
-                ImageCapture.Builder()
-                    .setTargetResolution(Size(metrics.widthPixels, metrics.heightPixels))
+                imageAnalyzer = ImageAnalysis.Builder()
+                    .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                     .build()
-            /* imageCapture = ImageCapture.Builder()
-                 .setTargetAspectRatio(AspectRatio.RATIO_16_9)
-                 .build()*/
+                    .also {
+                        it.setAnalyzer(cameraExecutor, selectAnalyzer())
+                    }
 
-            setUpPinchToZoom()
-            setCameraConfig(cameraProvider, cameraSelector)
-        }, ContextCompat.getMainExecutor(context))
+                val cameraSelector = CameraSelector.Builder()
+                    .requireLensFacing(cameraSelectorOption)
+                    .build()
+
+                metrics = DisplayMetrics().also { finderView?.display?.getRealMetrics(it) }
+
+                imageCapture =
+                    ImageCapture.Builder()
+                        .setTargetAspectRatio(AspectRatio.RATIO_16_9)
+                        .build()
+
+                setUpPinchToZoom()
+                setCameraConfig(cameraProvider, cameraSelector)
+
+            }, ContextCompat.getMainExecutor(context)
+        )
     }
 
     /**
