@@ -51,8 +51,6 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initVerifyIdentity()
-       // val mSelectedImage = context?.let { getBitmapFromAsset(it, "Please_walk_on_the_grass.jpg") }
-       // textRecFromBitmap(mSelectedImage)
     }
 
     private fun textRecFromBitmap(mSelectedImage: Bitmap?) {
@@ -131,18 +129,5 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
                 ).show()
             }
         })
-    }
-
-    fun getBitmapFromAsset(context: Context, filePath: String?): Bitmap? {
-        val assetManager = context.assets
-        val `is`: InputStream
-        var bitmap: Bitmap? = null
-        try {
-            `is` = assetManager.open(filePath!!)
-            bitmap = BitmapFactory.decodeStream(`is`)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        return bitmap
     }
 }

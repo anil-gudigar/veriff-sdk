@@ -52,8 +52,6 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initVerifyIdentity()
-        //val mSelectedImage = context?.let { getBitmapFromAsset(it, "grace_hopper.jpg") }
-        //facRecFromBitmap(mSelectedImage)
     }
 
     private fun facRecFromBitmap(mSelectedImage: Bitmap?) {
@@ -132,18 +130,5 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
                 ).show()
             }
         })
-    }
-
-    fun getBitmapFromAsset(context: Context, filePath: String?): Bitmap? {
-        val assetManager = context.assets
-        val `is`: InputStream
-        var bitmap: Bitmap? = null
-        try {
-            `is` = assetManager.open(filePath!!)
-            bitmap = BitmapFactory.decodeStream(`is`)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        return bitmap
     }
 }
