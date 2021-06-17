@@ -1,4 +1,4 @@
-package com.veriff.sdk.identity.data.repository.contracts
+package com.veriff.sdk.identity.data.repository
 
 import androidx.lifecycle.LiveData
 import com.google.mlkit.vision.common.InputImage

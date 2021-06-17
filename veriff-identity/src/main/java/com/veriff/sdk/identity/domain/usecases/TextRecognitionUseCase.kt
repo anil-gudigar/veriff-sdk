@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.veriff.sdk.core.domain.IUseCase
-import com.veriff.sdk.identity.data.repository.contracts.ITextRecognitionRepository
+import com.veriff.sdk.identity.data.repository.ITextRecognitionRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 

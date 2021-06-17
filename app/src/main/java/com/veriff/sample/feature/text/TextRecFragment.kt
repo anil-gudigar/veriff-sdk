@@ -1,4 +1,4 @@
-package com.veriff.sample.ui.text
+package com.veriff.sample.feature.text
 
 import android.graphics.Bitmap
 import android.net.Uri
@@ -10,12 +10,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.mlkit.vision.text.Text
 import com.veriff.sample.R
+import com.veriff.sample.SampleApp
 import com.veriff.sample.databinding.FragmentTextRecBinding
+import com.veriff.sample.feature.face.FaceRecViewModel
+import com.veriff.sample.feature.face.FaceRecViewModelFactory
 import com.veriff.sdk.core.app.VeriffApp
 import com.veriff.sdk.core.util.saveToGallery
 import com.veriff.sdk.identity.VeriffIdentityManager
@@ -24,7 +27,9 @@ import kotlinx.coroutines.launch
 
 class TextRecFragment : Fragment(), IdentityCallback<Text> {
 
-    private lateinit var textRecViewModel: TextRecViewModel
+    private val textRecViewModel by viewModels<TextRecViewModel> {
+        TextRecViewModelFactory((requireContext().applicationContext as SampleApp).textRecognitionRepository)
+    }
     private var _binding: FragmentTextRecBinding? = null
 
     // This property is only valid between onCreateView and
@@ -36,8 +41,6 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        textRecViewModel =
-            ViewModelProvider(this).get(TextRecViewModel::class.java)
         _binding = FragmentTextRecBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
@@ -47,7 +50,6 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
         super.onViewCreated(view, savedInstanceState)
         initVerifyIdentity()
     }
-
 
 
     private fun initVerifyIdentity() {
@@ -80,7 +82,7 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
     private fun textRecFromBitmap(mSelectedImage: Bitmap?) {
         viewLifecycleOwner.lifecycleScope.launch {
             mSelectedImage?.let {
-                textRecViewModel.runTextRecognition(it)
+                textRecViewModel.textRecData
                     ?.observe(viewLifecycleOwner, Observer { results ->
                         if (results.text.isEmpty()) {
                             Log.i("Anil", "No Text :")
@@ -115,7 +117,7 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
 
     override fun onTakePictureSuccess(bitmap: Bitmap?) {
         textRecFromBitmap(bitmap)
-        var uri:Uri? = null
+        var uri: Uri? = null
         context?.let { uri = bitmap?.saveToGallery(it) }
         activity?.runOnUiThread(Runnable {
             if (isVisible) {

@@ -4,15 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
+import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
-import com.veriff.sdk.identity.data.repository.contracts.ITextRecognitionRepository
-import javax.inject.Inject
+import com.veriff.sdk.identity.data.repository.ITextRecognitionRepository
 
-class TextFaceRecognitionRepository @Inject constructor(private val textRecognizerClient: TextRecognizer) :
-    ITextRecognitionRepository {
+class TextRecognitionRepository : ITextRecognitionRepository {
+    var recognizer: TextRecognizer = TextRecognition.getClient()
+
     override suspend fun detectInImage(image: InputImage): LiveData<Text> {
         var resultsPostLiveData = MutableLiveData<Text>()
-        textRecognizerClient.process(image)
+        recognizer.process(image)
             .addOnSuccessListener { results ->
                 resultsPostLiveData.postValue(results)
             }

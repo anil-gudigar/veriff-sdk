@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.Face
 import com.veriff.sdk.core.domain.IUseCase
-import com.veriff.sdk.identity.data.repository.contracts.IFaceRecognitionRepository
+import com.veriff.sdk.identity.data.repository.IFaceRecognitionRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 

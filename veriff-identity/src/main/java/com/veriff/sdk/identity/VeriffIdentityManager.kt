@@ -13,11 +13,9 @@ import android.util.Log
 import android.view.OrientationEventListener
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
-import androidx.camera.core.AspectRatio
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
-import androidx.camera.core.impl.ImageCaptureConfig
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -32,8 +30,8 @@ import com.veriff.sdk.core.app.VeriffApp
 import com.veriff.sdk.core.util.*
 import com.veriff.sdk.identity.callback.IdentityCallback
 import com.veriff.sdk.identity.live.camerax.CameraManager
-import com.veriff.sdk.identity.data.repository.local.face.FaceFaceRecognitionRepository
-import com.veriff.sdk.identity.data.repository.local.text.TextFaceRecognitionRepository
+import com.veriff.sdk.identity.data.repository.local.face.FaceRecognitionRepository
+import com.veriff.sdk.identity.data.repository.local.text.TextRecognitionRepository
 import com.veriff.sdk.identity.domain.usecases.FaceRecognitionUseCase
 import com.veriff.sdk.identity.domain.usecases.TextRecognitionUseCase
 import com.veriff.sdk.identity.live.mlkit.vision.VisionType
@@ -192,22 +190,16 @@ class VeriffIdentityManager<T>(
     }
 
 
-    suspend fun runFaceContourDetection(mSelectedImage: Bitmap): LiveData<List<Face>> {
+    suspend fun runFaceContourDetection(repository: FaceRecognitionRepository,mSelectedImage: Bitmap): LiveData<List<Face>> {
         val image = InputImage.fromBitmap(mSelectedImage, 0)
-        val options = FaceDetectorOptions.Builder()
-            .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_FAST)
-            .setContourMode(FaceDetectorOptions.CONTOUR_MODE_ALL)
-            .build()
-        val detector = FaceDetection.getClient(options)
-        return FaceRecognitionUseCase(FaceFaceRecognitionRepository(detector)).execute(
+        return FaceRecognitionUseCase(repository).execute(
             FaceRecognitionUseCase.Params(image)
         )
     }
 
-    suspend fun runTextRecognition(mSelectedImage: Bitmap): LiveData<Text> {
+    suspend fun runTextRecognition(recognitionRepository: TextRecognitionRepository,mSelectedImage: Bitmap): LiveData<Text> {
         val image = InputImage.fromBitmap(mSelectedImage, 0)
-        val recognizer = TextRecognition.getClient()
-        return TextRecognitionUseCase(TextFaceRecognitionRepository(recognizer)).execute(
+        return TextRecognitionUseCase(recognitionRepository).execute(
             TextRecognitionUseCase.Params(image)
         )
     }
