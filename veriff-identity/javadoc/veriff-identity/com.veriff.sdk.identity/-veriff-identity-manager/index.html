@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>VeriffIdentityManager - veriff-identity</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">veriff-identity</a>&nbsp;/&nbsp;<a href="../index.html">com.veriff.sdk.identity</a>&nbsp;/&nbsp;<a href="./index.html">VeriffIdentityManager</a><br/>
+<br/>
+<h1>VeriffIdentityManager</h1>
+<code><span class="keyword">class </span><span class="identifier">VeriffIdentityManager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Veriff identity manager</p>
+<h3>Parameters</h3>
+<p><a name="T"></a>
+<code>T</code> - </p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">VeriffIdentityManager</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$<init>(com.veriff.sdk.core.app.VeriffApp, android.app.Activity, androidx.activity.result.ActivityResultLauncher((kotlin.Array((kotlin.String)))), com.veriff.sdk.components.view.VeriffScannerView, com.veriff.sdk.identity.live.mlkit.vision.VisionType, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.VeriffIdentityManager.T)))/veriffApp">veriffApp</span><span class="symbol">:</span>&nbsp;<span class="identifier">VeriffApp</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$<init>(com.veriff.sdk.core.app.VeriffApp, android.app.Activity, androidx.activity.result.ActivityResultLauncher((kotlin.Array((kotlin.String)))), com.veriff.sdk.components.view.VeriffScannerView, com.veriff.sdk.identity.live.mlkit.vision.VisionType, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.VeriffIdentityManager.T)))/activity">activity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$<init>(com.veriff.sdk.core.app.VeriffApp, android.app.Activity, androidx.activity.result.ActivityResultLauncher((kotlin.Array((kotlin.String)))), com.veriff.sdk.components.view.VeriffScannerView, com.veriff.sdk.identity.live.mlkit.vision.VisionType, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.VeriffIdentityManager.T)))/checkPermission">checkPermission</span><span class="symbol">:</span>&nbsp;<span class="identifier">ActivityResultLauncher</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$<init>(com.veriff.sdk.core.app.VeriffApp, android.app.Activity, androidx.activity.result.ActivityResultLauncher((kotlin.Array((kotlin.String)))), com.veriff.sdk.components.view.VeriffScannerView, com.veriff.sdk.identity.live.mlkit.vision.VisionType, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.VeriffIdentityManager.T)))/scannerView">scannerView</span><span class="symbol">:</span>&nbsp;<span class="identifier">VeriffScannerView</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$<init>(com.veriff.sdk.core.app.VeriffApp, android.app.Activity, androidx.activity.result.ActivityResultLauncher((kotlin.Array((kotlin.String)))), com.veriff.sdk.components.view.VeriffScannerView, com.veriff.sdk.identity.live.mlkit.vision.VisionType, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.VeriffIdentityManager.T)))/visionType">visionType</span><span class="symbol">:</span>&nbsp;<a href="../../com.veriff.sdk.identity.live.mlkit.vision/-vision-type/index.html"><span class="identifier">VisionType</span></a><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$<init>(com.veriff.sdk.core.app.VeriffApp, android.app.Activity, androidx.activity.result.ActivityResultLauncher((kotlin.Array((kotlin.String)))), com.veriff.sdk.components.view.VeriffScannerView, com.veriff.sdk.identity.live.mlkit.vision.VisionType, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.VeriffIdentityManager.T)))/identityCallback">identityCallback</span><span class="symbol">:</span>&nbsp;<a href="../../com.veriff.sdk.identity.callback/-identity-callback/index.html"><span class="identifier">IdentityCallback</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Create empty Veriff identity manager</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="camera-manager.html">cameraManager</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">cameraManager</span><span class="symbol">: </span><a href="../../com.veriff.sdk.identity.live.camerax/-camera-manager/index.html"><span class="identifier">CameraManager</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="on-request-permissions-result.html">onRequestPermissionsResult</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onRequestPermissionsResult</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>On request permissions result</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="run-face-contour-detection.html">runFaceContourDetection</a></p>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">runFaceContourDetection</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$runFaceContourDetection(com.veriff.sdk.identity.data.repository.local.face.FaceRecognitionRepository, android.graphics.Bitmap)/repository">repository</span><span class="symbol">:</span>&nbsp;<a href="../../com.veriff.sdk.identity.data.repository.local.face/-face-recognition-repository/index.html"><span class="identifier">FaceRecognitionRepository</span></a><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$runFaceContourDetection(com.veriff.sdk.identity.data.repository.local.face.FaceRecognitionRepository, android.graphics.Bitmap)/mSelectedImage">mSelectedImage</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">Face</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Run face contour detection</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="run-text-recognition.html">runTextRecognition</a></p>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">runTextRecognition</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$runTextRecognition(com.veriff.sdk.identity.data.repository.local.text.TextRecognitionRepository, android.graphics.Bitmap)/recognitionRepository">recognitionRepository</span><span class="symbol">:</span>&nbsp;<a href="../../com.veriff.sdk.identity.data.repository.local.text/-text-recognition-repository/index.html"><span class="identifier">TextRecognitionRepository</span></a><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.VeriffIdentityManager$runTextRecognition(com.veriff.sdk.identity.data.repository.local.text.TextRecognitionRepository, android.graphics.Bitmap)/mSelectedImage">mSelectedImage</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LiveData</span><span class="symbol">&lt;</span><span class="identifier">Text</span><span class="symbol">&gt;</span></code>
+<p>Run text recognition</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

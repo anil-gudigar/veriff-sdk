@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TextRecognitionProcessor - veriff-identity</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">veriff-identity</a>&nbsp;/&nbsp;<a href="../index.html">com.veriff.sdk.identity.live.mlkit.vision.text_recognition</a>&nbsp;/&nbsp;<a href="./index.html">TextRecognitionProcessor</a><br/>
+<br/>
+<h1>TextRecognitionProcessor</h1>
+<code><span class="keyword">class </span><span class="identifier">TextRecognitionProcessor</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseImageAnalyzer</span><span class="symbol">&lt;</span><span class="identifier">Text</span><span class="symbol">&gt;</span></code>
+<p>Text recognition processor</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">TextRecognitionProcessor</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.live.mlkit.vision.text_recognition.TextRecognitionProcessor$<init>(com.veriff.sdk.camerax.GraphicOverlay, com.veriff.sdk.identity.callback.IdentityCallback((com.google.mlkit.vision.text.Text)))/view">view</span><span class="symbol">:</span>&nbsp;<span class="identifier">GraphicOverlay</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.live.mlkit.vision.text_recognition.TextRecognitionProcessor$<init>(com.veriff.sdk.camerax.GraphicOverlay, com.veriff.sdk.identity.callback.IdentityCallback((com.google.mlkit.vision.text.Text)))/identityCallback">identityCallback</span><span class="symbol">:</span>&nbsp;<a href="../../com.veriff.sdk.identity.callback/-identity-callback/index.html"><span class="identifier">IdentityCallback</span></a><span class="symbol">&lt;</span><span class="identifier">Text</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Create empty Text recognition processor</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="graphic-overlay.html">graphicOverlay</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">graphicOverlay</span><span class="symbol">: </span><span class="identifier">GraphicOverlay</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="detect-in-image.html">detectInImage</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">detectInImage</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.live.mlkit.vision.text_recognition.TextRecognitionProcessor$detectInImage(com.google.mlkit.vision.common.InputImage)/image">image</span><span class="symbol">:</span>&nbsp;<span class="identifier">InputImage</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Task</span><span class="symbol">&lt;</span><span class="identifier">Text</span><span class="symbol">&gt;</span></code>
+<p>Detect in image</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-failure.html">onFailure</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onFailure</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.live.mlkit.vision.text_recognition.TextRecognitionProcessor$onFailure(java.lang.Exception)/e">e</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>On failure</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-success.html">onSuccess</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onSuccess</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.live.mlkit.vision.text_recognition.TextRecognitionProcessor$onSuccess(com.google.mlkit.vision.text.Text, com.veriff.sdk.camerax.GraphicOverlay, android.graphics.Rect)/results">results</span><span class="symbol">:</span>&nbsp;<span class="identifier">Text</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.live.mlkit.vision.text_recognition.TextRecognitionProcessor$onSuccess(com.google.mlkit.vision.text.Text, com.veriff.sdk.camerax.GraphicOverlay, android.graphics.Rect)/graphicOverlay">graphicOverlay</span><span class="symbol">:</span>&nbsp;<span class="identifier">GraphicOverlay</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.live.mlkit.vision.text_recognition.TextRecognitionProcessor$onSuccess(com.google.mlkit.vision.text.Text, com.veriff.sdk.camerax.GraphicOverlay, android.graphics.Rect)/rect">rect</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Rect.html"><span class="identifier">Rect</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>On success</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stop.html">stop</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

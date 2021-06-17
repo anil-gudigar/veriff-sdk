@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CameraManager - veriff-identity</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">veriff-identity</a>&nbsp;/&nbsp;<a href="../index.html">com.veriff.sdk.identity.live.camerax</a>&nbsp;/&nbsp;<a href="./index.html">CameraManager</a><br/>
+<br/>
+<h1>CameraManager</h1>
+<code><span class="keyword">class </span><span class="identifier">CameraManager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Camera manager</p>
+<h3>Parameters</h3>
+<p><a name="T"></a>
+<code>T</code> - </p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CameraManager</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.live.camerax.CameraManager$<init>(android.content.Context, androidx.camera.view.PreviewView, androidx.lifecycle.LifecycleOwner, com.veriff.sdk.camerax.GraphicOverlay, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.live.camerax.CameraManager.T)))/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.live.camerax.CameraManager$<init>(android.content.Context, androidx.camera.view.PreviewView, androidx.lifecycle.LifecycleOwner, com.veriff.sdk.camerax.GraphicOverlay, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.live.camerax.CameraManager.T)))/finderView">finderView</span><span class="symbol">:</span>&nbsp;<span class="identifier">PreviewView</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.live.camerax.CameraManager$<init>(android.content.Context, androidx.camera.view.PreviewView, androidx.lifecycle.LifecycleOwner, com.veriff.sdk.camerax.GraphicOverlay, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.live.camerax.CameraManager.T)))/lifecycleOwner">lifecycleOwner</span><span class="symbol">:</span>&nbsp;<span class="identifier">LifecycleOwner</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.live.camerax.CameraManager$<init>(android.content.Context, androidx.camera.view.PreviewView, androidx.lifecycle.LifecycleOwner, com.veriff.sdk.camerax.GraphicOverlay, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.live.camerax.CameraManager.T)))/graphicOverlay">graphicOverlay</span><span class="symbol">:</span>&nbsp;<span class="identifier">GraphicOverlay</span><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.identity.live.camerax.CameraManager$<init>(android.content.Context, androidx.camera.view.PreviewView, androidx.lifecycle.LifecycleOwner, com.veriff.sdk.camerax.GraphicOverlay, com.veriff.sdk.identity.callback.IdentityCallback((com.veriff.sdk.identity.live.camerax.CameraManager.T)))/identityCallback">identityCallback</span><span class="symbol">:</span>&nbsp;<a href="../../com.veriff.sdk.identity.callback/-identity-callback/index.html"><span class="identifier">IdentityCallback</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span></code>
+<p>Create empty Camera manager</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="camera-executor.html">cameraExecutor</a></p>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">cameraExecutor</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/util/concurrent/ExecutorService.html"><span class="identifier">ExecutorService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="camera-selector-option.html">cameraSelectorOption</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">cameraSelectorOption</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="image-capture.html">imageCapture</a></p>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">imageCapture</span><span class="symbol">: </span><span class="identifier">ImageCapture</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="metrics.html">metrics</a></p>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">metrics</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/util/DisplayMetrics.html"><span class="identifier">DisplayMetrics</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="rotation.html">rotation</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">rotation</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="change-analyzer.html">changeAnalyzer</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">changeAnalyzer</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.identity.live.camerax.CameraManager$changeAnalyzer(com.veriff.sdk.identity.live.mlkit.vision.VisionType)/visionType">visionType</span><span class="symbol">:</span>&nbsp;<a href="../../com.veriff.sdk.identity.live.mlkit.vision/-vision-type/index.html"><span class="identifier">VisionType</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Change analyzer</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="change-camera-selector.html">changeCameraSelector</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">changeCameraSelector</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Change camera selector front camera / back camera</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="is-horizontal-mode.html">isHorizontalMode</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isHorizontalMode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Is horizontal mode</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="start-camera.html">startCamera</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">startCamera</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Start camera with all configuration set</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

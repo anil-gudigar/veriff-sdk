@@ -1,0 +1,13 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.veriff.sdk.identity
+com.veriff.sdk.identity.callback
+com.veriff.sdk.identity.data.repository
+com.veriff.sdk.identity.data.repository.local.face
+com.veriff.sdk.identity.data.repository.local.text
+com.veriff.sdk.identity.domain.usecases
+com.veriff.sdk.identity.live.camerax
+com.veriff.sdk.identity.live.mlkit.vision
+com.veriff.sdk.identity.live.mlkit.vision.face_detection
+com.veriff.sdk.identity.live.mlkit.vision.text_recognition
