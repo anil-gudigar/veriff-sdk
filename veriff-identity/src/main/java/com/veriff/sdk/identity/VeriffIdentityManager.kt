@@ -189,7 +189,13 @@ class VeriffIdentityManager<T>(
         }
     }
 
-
+    /**
+     * Run face contour detection
+     *
+     * @param repository
+     * @param mSelectedImage
+     * @return
+     */
     suspend fun runFaceContourDetection(repository: FaceRecognitionRepository,mSelectedImage: Bitmap): LiveData<List<Face>> {
         val image = InputImage.fromBitmap(mSelectedImage, 0)
         return FaceRecognitionUseCase(repository).execute(
@@ -197,12 +203,24 @@ class VeriffIdentityManager<T>(
         )
     }
 
+    /**
+     * Run text recognition
+     *
+     * @param recognitionRepository
+     * @param mSelectedImage
+     * @return
+     */
     suspend fun runTextRecognition(recognitionRepository: TextRecognitionRepository,mSelectedImage: Bitmap): LiveData<Text> {
         val image = InputImage.fromBitmap(mSelectedImage, 0)
         return TextRecognitionUseCase(recognitionRepository).execute(
             TextRecognitionUseCase.Params(image)
         )
     }
+
+    /**
+     * Set orientation event
+     *
+     */
     private fun setOrientationEvent() {
         val orientationEventListener = object : OrientationEventListener(this as Context) {
             override fun onOrientationChanged(orientation: Int) {

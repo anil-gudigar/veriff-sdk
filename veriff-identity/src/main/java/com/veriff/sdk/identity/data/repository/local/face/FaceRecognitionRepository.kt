@@ -9,6 +9,11 @@ import com.google.mlkit.vision.face.FaceDetector
 import com.google.mlkit.vision.face.FaceDetectorOptions
 import com.veriff.sdk.identity.data.repository.IFaceRecognitionRepository
 
+/**
+ * Face recognition repository
+ *
+ * @constructor Create empty Face recognition repository
+ */
 class FaceRecognitionRepository :
     IFaceRecognitionRepository {
     var options: FaceDetectorOptions
@@ -22,6 +27,12 @@ class FaceRecognitionRepository :
         detector = FaceDetection.getClient(options)
     }
 
+    /**
+     * Detect in image
+     *
+     * @param image
+     * @return
+     */
     override suspend fun detectInImage(image: InputImage): LiveData<List<Face>> {
         var resultsPostLiveData = MutableLiveData<List<Face>>()
         detector.process(image)

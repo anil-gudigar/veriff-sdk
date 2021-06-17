@@ -1,0 +1,11 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.veriff.sdk.core.util$getBaseYByView(android.graphics.Bitmap, android.view.View, kotlin.Boolean)com.veriff.sdk.core.util/android.graphics.-bitmap/get-base-y-by-view.html
+$dokka.location:com.veriff.sdk.core.util$imageToBitmap(android.media.Image)com.veriff.sdk.core.util/android.media.-image/image-to-bitmap.html
+$dokka.location:com.veriff.sdk.core.util$saveToGallery(android.graphics.Bitmap, android.content.Context)com.veriff.sdk.core.util/android.graphics.-bitmap/save-to-gallery.html
+$dokka.location:com.veriff.sdk.core.util$scaleImage(android.graphics.Bitmap, android.view.View, kotlin.Boolean)com.veriff.sdk.core.util/android.graphics.-bitmap/scale-image.html
+com.veriff.sdk.core.app
+com.veriff.sdk.core.config
+com.veriff.sdk.core.domain
+com.veriff.sdk.core.persitance
+com.veriff.sdk.core.util

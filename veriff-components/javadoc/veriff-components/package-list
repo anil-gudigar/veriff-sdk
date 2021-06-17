@@ -1,0 +1,5 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.veriff.sdk.camerax
+com.veriff.sdk.components.view

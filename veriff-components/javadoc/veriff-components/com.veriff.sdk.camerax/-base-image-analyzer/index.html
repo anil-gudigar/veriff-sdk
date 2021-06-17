@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BaseImageAnalyzer - veriff-components</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">veriff-components</a>&nbsp;/&nbsp;<a href="../index.html">com.veriff.sdk.camerax</a>&nbsp;/&nbsp;<a href="./index.html">BaseImageAnalyzer</a><br/>
+<br/>
+<h1>BaseImageAnalyzer</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseImageAnalyzer</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Analyzer</span></code>
+<p>Base image analyzer</p>
+<h3>Parameters</h3>
+<p><a name="T"></a>
+<code>T</code> - </p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">BaseImageAnalyzer</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Base image analyzer</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="graphic-overlay.html">graphicOverlay</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">graphicOverlay</span><span class="symbol">: </span><a href="../-graphic-overlay/index.html"><span class="identifier">GraphicOverlay</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="analyze.html">analyze</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">analyze</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.camerax.BaseImageAnalyzer$analyze(androidx.camera.core.ImageProxy)/imageProxy">imageProxy</span><span class="symbol">:</span>&nbsp;<span class="identifier">ImageProxy</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="detect-in-image.html">detectInImage</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">detectInImage</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.camerax.BaseImageAnalyzer$detectInImage(com.google.mlkit.vision.common.InputImage)/image">image</span><span class="symbol">:</span>&nbsp;<span class="identifier">InputImage</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Task</span><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-failure.html">onFailure</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onFailure</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.camerax.BaseImageAnalyzer$onFailure(java.lang.Exception)/e">e</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-success.html">onSuccess</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onSuccess</span><span class="symbol">(</span><span class="identifier" id="com.veriff.sdk.camerax.BaseImageAnalyzer$onSuccess(com.veriff.sdk.camerax.BaseImageAnalyzer.T, com.veriff.sdk.camerax.GraphicOverlay, android.graphics.Rect)/results">results</span><span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.camerax.BaseImageAnalyzer$onSuccess(com.veriff.sdk.camerax.BaseImageAnalyzer.T, com.veriff.sdk.camerax.GraphicOverlay, android.graphics.Rect)/graphicOverlay">graphicOverlay</span><span class="symbol">:</span>&nbsp;<a href="../-graphic-overlay/index.html"><span class="identifier">GraphicOverlay</span></a><span class="symbol">, </span><span class="identifier" id="com.veriff.sdk.camerax.BaseImageAnalyzer$onSuccess(com.veriff.sdk.camerax.BaseImageAnalyzer.T, com.veriff.sdk.camerax.GraphicOverlay, android.graphics.Rect)/rect">rect</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Rect.html"><span class="identifier">Rect</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="stop.html">stop</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
