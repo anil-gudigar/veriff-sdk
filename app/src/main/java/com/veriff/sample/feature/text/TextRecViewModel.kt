@@ -9,7 +9,10 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.veriff.sdk.identity.VeriffIdentityManager
 import com.veriff.sdk.identity.data.repository.ITextRecognitionRepository
+import com.veriff.sdk.identity.data.repository.local.face.FaceRecognitionRepository
 import com.veriff.sdk.identity.data.repository.local.text.TextRecognitionRepository
+import com.veriff.sdk.identity.domain.usecases.FaceRecognitionUseCase
+import com.veriff.sdk.identity.domain.usecases.TextRecognitionUseCase
 import com.veriff.sdk.identity.live.mlkit.vision.VisionType
 import javax.inject.Inject
 
@@ -22,7 +25,11 @@ class TextRecViewModel @Inject constructor(private val repository: ITextRecognit
 
     suspend fun runTextRecognition(image: Bitmap) {
         val inputImage = InputImage.fromBitmap(image, 0)
-        textRecData.postValue((repository as TextRecognitionRepository).detectInImage(inputImage).value)
+        textRecData.postValue(
+            TextRecognitionUseCase((repository as TextRecognitionRepository)).execute(
+                TextRecognitionUseCase.Params(inputImage)
+            ).value
+        )
     }
 }
 

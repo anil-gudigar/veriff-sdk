@@ -8,6 +8,8 @@ import com.google.mlkit.vision.face.Face
 import com.veriff.sdk.identity.VeriffIdentityManager
 import com.veriff.sdk.identity.data.repository.IFaceRecognitionRepository
 import com.veriff.sdk.identity.data.repository.local.face.FaceRecognitionRepository
+import com.veriff.sdk.identity.domain.usecases.FaceRecognitionUseCase
+import com.veriff.sdk.identity.domain.usecases.TextRecognitionUseCase
 import com.veriff.sdk.identity.live.mlkit.vision.VisionType
 import javax.inject.Inject
 
@@ -20,7 +22,11 @@ class FaceRecViewModel @Inject constructor(private val repository: IFaceRecognit
 
     suspend fun runFaceDetection(image: Bitmap) {
         val inputImage = InputImage.fromBitmap(image, 0)
-        faceRecData.postValue((repository as FaceRecognitionRepository).detectInImage(inputImage).value)
+        faceRecData.postValue(
+            FaceRecognitionUseCase((repository as FaceRecognitionRepository)).execute(
+                FaceRecognitionUseCase.Params(inputImage)
+            ).value
+        )
     }
 }
 
