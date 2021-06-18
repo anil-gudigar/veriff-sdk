@@ -1,5 +1,4 @@
 # veriff-sdk
-veriff-sdk
 * Quick summary
    - This is the Android SDK for ML Vision.
    - Version 1.0
