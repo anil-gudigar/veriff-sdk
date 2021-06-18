@@ -18,7 +18,7 @@ veriff-sdk
     Kotlin\
     Databinding\
     Android X\
-    ML Kit \
+    ML Kit\ 
 * How to run tests
     Junit
 * Deployment instructions
