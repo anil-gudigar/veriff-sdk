@@ -1,6 +1,6 @@
 # veriff-sdk
 veriff-sdk
-* Quick summary\
+* Quick summary
 * This is the Android SDK for ML Vision.
 * Version 1.0
 
@@ -19,7 +19,7 @@ veriff-sdk
     Databinding\
     Android X\
     ML Kit \
-* How to run tests\
+* How to run tests
     Junit
 * Deployment instructions
 
