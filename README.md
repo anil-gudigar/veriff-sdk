@@ -23,4 +23,20 @@ veriff-sdk
     Junit
 * Deployment instructions
 
+### veriff-core : ###
+   Core accelerators for SDK 
+   
+### veriff-components: ###
+   consists of UI Compoments which can be included to app 
+   
+### veriff-identity:### 
+   Consists of Utility and repository and usecases for ML Vision 
+   
+   
+###  How to use: ###
+ 
+  
+   
+   
+
 
