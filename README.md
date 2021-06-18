@@ -131,7 +131,7 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     }
 ```
 
-## Option 2:##
+## Option 2: ##
 
 Step 1:
 
