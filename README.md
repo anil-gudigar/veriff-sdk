@@ -19,7 +19,7 @@ veriff-sdk
     Databinding\
     Android X\
     ML Kit 
-* How to run tests
+* How to run tests\
     Junit
 * Deployment instructions
 
