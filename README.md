@@ -26,7 +26,7 @@
    Core accelerators for SDK 
    
 ### veriff-components: ###
-   consists of UI Compoments which can be included to app 
+   consists of UI Components which can be included to app 
    
 ### veriff-identity: ### 
    Consists of Utility and repository and usecases for ML Vision 
