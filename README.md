@@ -158,7 +158,7 @@ Step 1:
 }
 
 ```
-Usecase for Face Detection by supplying Bitmap
+Usecase for Text Detection by supplying Bitmap
 
 ```
 class TextRecViewModel @Inject constructor(private val repository: ITextRecognitionRepository) :
