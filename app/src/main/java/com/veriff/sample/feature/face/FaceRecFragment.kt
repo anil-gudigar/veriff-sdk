@@ -81,9 +81,9 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
                 faceRecViewModel.faceRecData
                     ?.observe(viewLifecycleOwner, Observer { results ->
                         if (results.isEmpty()) {
-                            Log.i("Anil", "No Face :")
+                            Log.i(TAG, "No Face :")
                         } else {
-                            Log.i("Anil", "Face :" + results.size)
+                            Log.i(TAG, "Face :" + results.size)
                         }
                     })
             }
@@ -125,4 +125,8 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
             }
         })
     }
+    companion object {
+        private const val TAG = "veriff-sdk"
+    }
+
 }

@@ -85,9 +85,9 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
                 textRecViewModel.textRecData
                     ?.observe(viewLifecycleOwner, Observer { results ->
                         if (results.text.isEmpty()) {
-                            Log.i("Anil", "No Text :")
+                            Log.i(TAG, "No Text :")
                         } else {
-                            Log.i("Anil", "Text :" + results.text)
+                            Log.i(TAG, "Text :" + results.text)
                         }
                     })
             }
@@ -128,5 +128,8 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
                 ).show()
             }
         })
+    }
+    companion object {
+        private const val TAG = "veriff-sdk"
     }
 }
