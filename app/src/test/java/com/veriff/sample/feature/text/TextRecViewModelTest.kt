@@ -1,8 +1,8 @@
 package com.veriff.sample.feature.text
 
-import android.content.Context
 import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.google.mlkit.vision.text.Text
 import com.veriff.sample.getOrAwaitValue
 import com.veriff.sdk.identity.data.repository.FakeTextRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -49,17 +49,16 @@ class TextRecViewModelTest {
     @Test
     fun runTextRecognition() = runBlockingTest {
         //GIVEN
+        var value: Text? = null
         // Bitmap image
         // When adding a new task
+
         image?.let {
-            textRecViewModel.runTextRecognition(it)
+            value = textRecViewModel.runTextRecognition(it).getOrAwaitValue()
         }
-
-        // Then the new task event is triggered
-        val value = textRecViewModel.textRecData.getOrAwaitValue()
-
+        //Then
         MatcherAssert.assertThat(
-            value.text,
+            value,
             CoreMatchers.not(CoreMatchers.nullValue())
         )
 

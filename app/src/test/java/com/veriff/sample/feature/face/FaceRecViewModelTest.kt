@@ -2,6 +2,9 @@ package com.veriff.sample.feature.face
 
 import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.google.mlkit.vision.face.Face
 import com.veriff.sample.getOrAwaitValue
 import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -48,17 +51,15 @@ class FaceRecViewModelTest {
     @Test
     fun runFaceRecognition() = runBlockingTest {
         //GIVEN
+        var value :List<Face> ?= null
         // Bitmap image
         // When adding a new task
         image?.let {
-            faceRecViewModel.runFaceDetection(it)
+            value = faceRecViewModel.runFaceDetection(it).getOrAwaitValue()
         }
-
-        // Then the new task event is triggered
-        val value = faceRecViewModel.faceRecData.getOrAwaitValue()
-
+        //Then
         MatcherAssert.assertThat(
-            value.size,
+            value?.size,
             CoreMatchers.not(CoreMatchers.nullValue())
         )
     }
