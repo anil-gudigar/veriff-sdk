@@ -82,7 +82,7 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
                    faceRecViewModel.faceRecData.postValue(results)
                     results?.let{
                         if (results.isEmpty()) {
-                            Log.i(TAG, "No Face :")
+                            Log.i(TAG, "No Face found")
                         } else {
                             Log.i(TAG, "Face :" + results.size)
                         }
