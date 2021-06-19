@@ -82,14 +82,14 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
     private fun textRecFromBitmap(mSelectedImage: Bitmap?) {
         viewLifecycleOwner.lifecycleScope.launch {
             mSelectedImage?.let {
-                textRecViewModel.textRecData
-                    ?.observe(viewLifecycleOwner, Observer { results ->
-                        if (results.text.isEmpty()) {
-                            Log.i(TAG, "No Text :")
-                        } else {
-                            Log.i(TAG, "Text :" + results.text)
-                        }
-                    })
+                textRecViewModel.runTextRecognition(mSelectedImage).observe(viewLifecycleOwner, Observer { results ->
+                    textRecViewModel.textRecData.postValue(results)
+                    if (results.text.isEmpty()) {
+                        Log.i(TAG, "No Text :")
+                    } else {
+                        Log.i(TAG, "Text :" + results.text)
+                    }
+                })
             }
         }
     }

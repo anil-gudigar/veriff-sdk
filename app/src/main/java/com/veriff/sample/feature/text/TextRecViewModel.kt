@@ -2,6 +2,7 @@ package com.veriff.sample.feature.text
 
 import android.graphics.Bitmap
 import androidx.activity.result.ActivityResultLauncher
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -23,12 +24,10 @@ class TextRecViewModel @Inject constructor(private val repository: ITextRecognit
     val visionType: VisionType = VisionType.OCR
     var textRecData: MutableLiveData<Text> = MutableLiveData<Text>()
 
-    suspend fun runTextRecognition(image: Bitmap) {
+    suspend fun runTextRecognition(image: Bitmap): LiveData<Text>{
         val inputImage = InputImage.fromBitmap(image, 0)
-        textRecData.postValue(
-            TextRecognitionUseCase((repository as TextRecognitionRepository)).execute(
-                TextRecognitionUseCase.Params(inputImage)
-            ).value
+        return TextRecognitionUseCase((repository as TextRecognitionRepository)).execute(
+            TextRecognitionUseCase.Params(inputImage)
         )
     }
 }

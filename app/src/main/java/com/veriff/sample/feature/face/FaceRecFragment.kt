@@ -78,14 +78,16 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
     private fun facRecFromBitmap(mSelectedImage: Bitmap?) {
         viewLifecycleOwner.lifecycleScope.launch {
             mSelectedImage?.let {
-                faceRecViewModel.faceRecData
-                    ?.observe(viewLifecycleOwner, Observer { results ->
+                faceRecViewModel.runFaceDetection(mSelectedImage).observe(viewLifecycleOwner, Observer { results ->
+                   faceRecViewModel.faceRecData.postValue(results)
+                    results?.let{
                         if (results.isEmpty()) {
                             Log.i(TAG, "No Face :")
                         } else {
                             Log.i(TAG, "Face :" + results.size)
                         }
-                    })
+                    }
+                })
             }
         }
     }
