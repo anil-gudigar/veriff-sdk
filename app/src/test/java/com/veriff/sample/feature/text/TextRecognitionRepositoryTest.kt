@@ -5,7 +5,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.veriff.sample.getOrAwaitValue
-import com.veriff.sdk.identity.data.repository.local.text.FakeTextRecognitionRepository
+import com.veriff.sdk.identity.data.repository.FakeTextRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers

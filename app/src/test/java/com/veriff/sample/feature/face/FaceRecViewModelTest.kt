@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.face.Face
 import com.veriff.sample.getOrAwaitValue
-import com.veriff.sdk.identity.data.repository.local.face.FakeFaceRecognitionRepository
+import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers
