@@ -147,12 +147,10 @@ Step 1:
     val visionType: VisionType = VisionType.Face
     val faceRecData = MutableLiveData<List<Face>>()
 
-    suspend fun runFaceDetection(image: Bitmap) {
+    suspend fun runFaceDetection(image: Bitmap) :LiveData<List<Face>>{
         val inputImage = InputImage.fromBitmap(image, 0)
-        faceRecData.postValue(
-            FaceRecognitionUseCase((repository as FaceRecognitionRepository)).execute(
-                FaceRecognitionUseCase.Params(inputImage)
-            ).value
+       return FaceRecognitionUseCase((repository as FaceRecognitionRepository)).execute(
+            FaceRecognitionUseCase.Params(inputImage)
         )
     }
 }
@@ -168,15 +166,14 @@ class TextRecViewModel @Inject constructor(private val repository: ITextRecognit
     val visionType: VisionType = VisionType.OCR
     var textRecData: MutableLiveData<Text> = MutableLiveData<Text>()
 
-    suspend fun runTextRecognition(image: Bitmap) {
+    suspend fun runTextRecognition(image: Bitmap): LiveData<Text>{
         val inputImage = InputImage.fromBitmap(image, 0)
-        textRecData.postValue(
-            TextRecognitionUseCase((repository as TextRecognitionRepository)).execute(
-                TextRecognitionUseCase.Params(inputImage)
-            ).value
+        return TextRecognitionUseCase((repository as TextRecognitionRepository)).execute(
+            TextRecognitionUseCase.Params(inputImage)
         )
     }
 }
+
 ``` 
  
 
