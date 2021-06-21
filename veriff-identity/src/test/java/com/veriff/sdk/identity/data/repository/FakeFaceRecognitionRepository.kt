@@ -4,11 +4,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.Face
+import com.google.mlkit.vision.face.FaceDetector
+import org.mockito.Mock
 
-class FakeFaceRecognitionRepository:IFaceRecognitionRepository {
-    private val mFaces = MutableLiveData<List<Face>>()
+class FakeFaceRecognitionRepository : IFaceRecognitionRepository {
+    val mFaces = MutableLiveData<List<Face>>()
+    @Mock
+    var detector: FaceDetector? = null
     override suspend fun detectInImage(image: InputImage): LiveData<List<Face>> {
-        mFaces.postValue(listOf<Face>())
-       return mFaces
+        detector?.process(image)
+            ?.addOnSuccessListener { results ->
+                mFaces.postValue(results)
+            }
+            ?.addOnCanceledListener {
+                mFaces.postValue(null)
+            }
+        return mFaces
     }
 }

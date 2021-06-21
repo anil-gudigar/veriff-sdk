@@ -3,6 +3,7 @@ package com.veriff.sample.feature.text
 import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.Text
 import com.veriff.sample.getOrAwaitValue
 import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository
 import com.veriff.sdk.identity.data.repository.FakeTextRecognitionRepository
@@ -13,8 +14,10 @@ import org.hamcrest.MatcherAssert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import org.robolectric.RobolectricTestRunner
 
 /**
  * Text recognition repository test
@@ -46,15 +49,14 @@ class TextRecognitionRepositoryTest {
     @Test
     fun runTextRecognition() = runBlockingTest {
         //GIVEN
+        var value: Text? = null
         // Bitmap image
         // When adding a new task
         inputImage?.let {
-            textRecognitionRepository.detectInImage(it)
+            value =  textRecognitionRepository.detectInImage(it).getOrAwaitValue()
         }
 
-        // Then the new task event is triggered
-        val value = textRecognitionRepository.mText.getOrAwaitValue()
-
+        //Then
         MatcherAssert.assertThat(
             value,
             CoreMatchers.not(CoreMatchers.nullValue())

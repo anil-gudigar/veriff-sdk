@@ -3,6 +3,7 @@ package com.veriff.sample.feature.face
 import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.face.Face
 import com.veriff.sample.getOrAwaitValue
 import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -47,16 +48,15 @@ class FaceRecognitionRepositoryTest {
     fun runFaceRecognition() = runBlockingTest {
         //GIVEN
         // Bitmap image
+        var value :List<Face> ?= null
         // When adding a new task
         inputImage?.let {
-            faceRecognitionRepository.detectInImage(it)
+            value =  faceRecognitionRepository.detectInImage(it).getOrAwaitValue()
         }
 
-        // Then the new task event is triggered
-        val value = faceRecognitionRepository.mFaces.getOrAwaitValue()
-
+        //Then
         MatcherAssert.assertThat(
-            value.size,
+            value?.size,
             CoreMatchers.not(CoreMatchers.nullValue())
         )
     }

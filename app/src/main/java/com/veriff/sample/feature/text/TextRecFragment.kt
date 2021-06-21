@@ -17,8 +17,6 @@ import com.google.mlkit.vision.text.Text
 import com.veriff.sample.R
 import com.veriff.sample.SampleApp
 import com.veriff.sample.databinding.FragmentTextRecBinding
-import com.veriff.sample.feature.face.FaceRecViewModel
-import com.veriff.sample.feature.face.FaceRecViewModelFactory
 import com.veriff.sdk.core.app.VeriffApp
 import com.veriff.sdk.core.util.saveToGallery
 import com.veriff.sdk.identity.VeriffIdentityManager

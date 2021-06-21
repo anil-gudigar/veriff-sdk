@@ -2,8 +2,6 @@ package com.veriff.sample.feature.face
 
 import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.google.mlkit.vision.face.Face
 import com.veriff.sample.getOrAwaitValue
 import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository

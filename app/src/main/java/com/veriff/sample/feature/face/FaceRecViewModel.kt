@@ -9,7 +9,6 @@ import com.veriff.sdk.identity.VeriffIdentityManager
 import com.veriff.sdk.identity.data.repository.IFaceRecognitionRepository
 import com.veriff.sdk.identity.data.repository.local.face.FaceRecognitionRepository
 import com.veriff.sdk.identity.domain.usecases.FaceRecognitionUseCase
-import com.veriff.sdk.identity.domain.usecases.TextRecognitionUseCase
 import com.veriff.sdk.identity.live.mlkit.vision.VisionType
 import javax.inject.Inject
 
