@@ -26,7 +26,7 @@ class TextRecViewModel @Inject constructor(private val repository: ITextRecognit
 
     suspend fun runTextRecognition(image: Bitmap): LiveData<Text>{
         val inputImage = InputImage.fromBitmap(image, 0)
-        textRecData = TextRecognitionUseCase((repository as TextRecognitionRepository)).execute(
+        textRecData = TextRecognitionUseCase((repository)).execute(
             TextRecognitionUseCase.Params(inputImage)
         )
         return textRecData

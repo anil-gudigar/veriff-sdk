@@ -1,7 +1,9 @@
 package com.veriff.sample.feature.text
 
+import android.content.Context
 import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.core.app.ApplicationProvider
 import com.google.mlkit.vision.text.Text
 import com.veriff.sample.getOrAwaitValue
 import com.veriff.sdk.identity.data.repository.FakeTextRecognitionRepository
@@ -40,8 +42,10 @@ class TextRecViewModelTest {
 
     @Mock
     var image: Bitmap? = null // this creates a MUTABLE bitmap
-    @Mock
-    var value: Text? = null
+
+
+    val ctx: Context = ApplicationProvider.getApplicationContext()
+    val mlkitCtx =  com.google.mlkit.common.MlKit.initialize(ctx)
 
     @Before
     fun setupViewModel() {
@@ -56,6 +60,7 @@ class TextRecViewModelTest {
     @Test
     fun runTextRecognition() = runBlockingTest {
         //GIVEN
+        var value: Text? = null
         // Bitmap image
         // When adding a new task
 

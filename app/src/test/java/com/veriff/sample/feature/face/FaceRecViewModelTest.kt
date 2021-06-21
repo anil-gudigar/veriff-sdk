@@ -1,7 +1,9 @@
 package com.veriff.sample.feature.face
 
+import android.content.Context
 import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.core.app.ApplicationProvider
 import com.google.mlkit.vision.face.Face
 import com.veriff.sample.getOrAwaitValue
 import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository
@@ -42,6 +44,8 @@ class FaceRecViewModelTest {
     @Mock
     val image:Bitmap ? = null // this creates a MUTABLE bitmap
 
+    val ctx: Context = ApplicationProvider.getApplicationContext()
+    val mlkitCtx =  com.google.mlkit.common.MlKit.initialize(ctx)
 
     @Before
     fun setupViewModel() {
