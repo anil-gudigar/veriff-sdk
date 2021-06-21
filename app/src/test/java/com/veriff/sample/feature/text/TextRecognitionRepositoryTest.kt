@@ -1,6 +1,5 @@
 package com.veriff.sample.feature.text
 
-import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
@@ -31,8 +30,6 @@ class TextRecognitionRepositoryTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     @Mock
-    var image: Bitmap? = null // this creates a MUTABLE bitmap
-    @Mock
     val inputImage: InputImage? = null // this creates a MUTABLE InputImage
 
     @Before
@@ -50,12 +47,13 @@ class TextRecognitionRepositoryTest {
         // Bitmap image
         // When adding a new task
         inputImage?.let {
-            value =  textRecognitionRepository.detectInImage(it).getOrAwaitValue()
+            textRecognitionRepository.detectInImage(it)
+            value = textRecognitionRepository.mText.getOrAwaitValue()
         }
 
         //Then
         MatcherAssert.assertThat(
-            value,
+            value?.text,
             CoreMatchers.not(CoreMatchers.nullValue())
         )
 

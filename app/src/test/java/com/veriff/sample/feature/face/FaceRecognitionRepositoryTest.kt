@@ -1,6 +1,5 @@
 package com.veriff.sample.feature.face
 
-import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.Face
@@ -32,8 +31,6 @@ class FaceRecognitionRepositoryTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     @Mock
-    val image: Bitmap? = null // this creates a MUTABLE bitmap
-    @Mock
     val inputImage: InputImage? = null // this creates a MUTABLE InputImage
 
 
@@ -48,10 +45,11 @@ class FaceRecognitionRepositoryTest {
     fun runFaceRecognition() = runBlockingTest {
         //GIVEN
         // Bitmap image
-        var value :List<Face> ?= null
+        var value: List<Face>? = null
         // When adding a new task
         inputImage?.let {
-            value =  faceRecognitionRepository.detectInImage(it).getOrAwaitValue()
+            faceRecognitionRepository.detectInImage(it)
+            value = faceRecognitionRepository.mFaces.getOrAwaitValue()
         }
 
         //Then

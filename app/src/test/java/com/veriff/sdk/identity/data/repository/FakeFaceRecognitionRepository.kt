@@ -9,17 +9,28 @@ import org.mockito.Mock
 
 class FakeFaceRecognitionRepository : IFaceRecognitionRepository {
     var mFaces = MutableLiveData<List<Face>>()
+
+    @Mock
+    val face: Face? = null
+
     @Mock
     var detector: FaceDetector? = null
 
+    //TODO:ML Context is null so added a hack for text case ( need to use Robolectric to mock MLContext)
     override suspend fun detectInImage(image: InputImage): LiveData<List<Face>> {
-        detector?.process(image)
-            ?.addOnSuccessListener { results ->
-                mFaces.postValue(results)
-            }
-            ?.addOnCanceledListener {
-                mFaces.postValue(null)
-            }
+        detector?.let {
+            it.process(image)
+                .addOnSuccessListener { results ->
+                    mFaces.postValue(results)
+                }
+                .addOnCanceledListener {
+                    mFaces.postValue(null)
+                }
+        } ?: kotlin.run {
+            val listOfFace = listOf<Face>()
+            listOfFace.plus(face)
+            mFaces.postValue(listOfFace)
+        }
         return mFaces
     }
 }

@@ -13,11 +13,19 @@ class FakeTextRecognitionRepository : ITextRecognitionRepository {
     var mText = MutableLiveData<Text>()
     @Mock
     val recognizer: TextRecognizer?= null
+    @Mock
+    val text: Text?= null
+
+    //TODO:ML Context is null so added a hack for text case ( need to use Robolectric to mock MLContext)
     override suspend fun detectInImage(image: InputImage): LiveData<Text> {
-        recognizer?.process(image)?.addOnSuccessListener { results ->
-            mText.postValue(results)
-        }?.addOnCanceledListener {
-            mText.postValue(null)
+        recognizer?.let {
+            it.process(image)?.addOnSuccessListener { results ->
+                mText.postValue(results)
+            }.addOnCanceledListener {
+                mText.postValue(null)
+            }
+        }?: kotlin.run {
+            mText.postValue(text)
         }
         return mText
     }

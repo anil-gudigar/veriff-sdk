@@ -12,8 +12,11 @@ import org.hamcrest.MatcherAssert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
 
 /**
@@ -22,6 +25,8 @@ import org.mockito.MockitoAnnotations
  * @constructor Create empty Face rec viewmodel test
  */
 @ExperimentalCoroutinesApi
+@RunWith(RobolectricTestRunner::class)
+@Config(manifest=Config.NONE)
 class FaceRecViewModelTest {
 
     // Subject under test
@@ -51,7 +56,10 @@ class FaceRecViewModelTest {
         //GIVEN
         var value :List<Face> ?= null
         // Bitmap image
+
         // When adding a new task
+        //TODO:ML Context is null so added a need to use Robolectric to mock MLContext
+
         image?.let {
             value = faceRecViewModel.runFaceDetection(it).getOrAwaitValue()
         }

@@ -82,7 +82,6 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
         viewLifecycleOwner.lifecycleScope.launch {
             mSelectedImage?.let {
                 textRecViewModel.runTextRecognition(mSelectedImage).observe(viewLifecycleOwner, Observer { results ->
-                    textRecViewModel.textRecData.postValue(results)
                     if (results.text.isEmpty()) {
                         Log.i(TAG, "No Text :")
                     } else {

@@ -12,8 +12,11 @@ import org.hamcrest.MatcherAssert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
 /**
  * Unit tests for the implementation of [FaceRecViewModel]
@@ -21,6 +24,8 @@ import org.mockito.MockitoAnnotations
  * @constructor Create empty Face rec viewmodel test
  */
 @ExperimentalCoroutinesApi
+@RunWith(RobolectricTestRunner::class)
+@Config(manifest= Config.NONE)
 class TextRecViewModelTest {
 
     // Subject under test
@@ -35,6 +40,8 @@ class TextRecViewModelTest {
 
     @Mock
     var image: Bitmap? = null // this creates a MUTABLE bitmap
+    @Mock
+    var value: Text? = null
 
     @Before
     fun setupViewModel() {
@@ -49,10 +56,10 @@ class TextRecViewModelTest {
     @Test
     fun runTextRecognition() = runBlockingTest {
         //GIVEN
-        var value: Text? = null
         // Bitmap image
         // When adding a new task
 
+        //TODO:ML Context is null so added a need to use Robolectric to mock MLContext
         image?.let {
             value = textRecViewModel.runTextRecognition(it).getOrAwaitValue()
         }

@@ -17,13 +17,14 @@ class FaceRecViewModel @Inject constructor(private val repository: IFaceRecognit
     internal var checkPermission: ActivityResultLauncher<Array<String>>? = null
     var veriffIdentityManager: VeriffIdentityManager<List<Face>>? = null
     val visionType: VisionType = VisionType.Face
-    val faceRecData = MutableLiveData<List<Face>>()
+    var faceRecData : LiveData<List<Face>> ? = MutableLiveData<List<Face>>()
 
     suspend fun runFaceDetection(image: Bitmap) :LiveData<List<Face>>{
         val inputImage = InputImage.fromBitmap(image, 0)
-       return FaceRecognitionUseCase(repository).execute(
+        faceRecData = FaceRecognitionUseCase(repository).execute(
             FaceRecognitionUseCase.Params(inputImage)
         )
+       return faceRecData as LiveData<List<Face>>
     }
 }
 

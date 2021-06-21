@@ -22,13 +22,14 @@ class TextRecViewModel @Inject constructor(private val repository: ITextRecognit
     internal var checkPermission: ActivityResultLauncher<Array<String>>? = null
     var veriffIdentityManager: VeriffIdentityManager<Text>? = null
     val visionType: VisionType = VisionType.OCR
-    var textRecData: MutableLiveData<Text> = MutableLiveData<Text>()
+    var textRecData: LiveData<Text> = MutableLiveData<Text>()
 
     suspend fun runTextRecognition(image: Bitmap): LiveData<Text>{
         val inputImage = InputImage.fromBitmap(image, 0)
-        return TextRecognitionUseCase((repository as TextRecognitionRepository)).execute(
+        textRecData = TextRecognitionUseCase((repository as TextRecognitionRepository)).execute(
             TextRecognitionUseCase.Params(inputImage)
         )
+        return textRecData
     }
 }
 

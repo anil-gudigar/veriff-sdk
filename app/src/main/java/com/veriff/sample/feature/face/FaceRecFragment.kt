@@ -80,7 +80,6 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
         viewLifecycleOwner.lifecycleScope.launch {
             mSelectedImage?.let {
                 faceRecViewModel.runFaceDetection(mSelectedImage).observe(viewLifecycleOwner, Observer { results ->
-                   faceRecViewModel.faceRecData.postValue(results)
                     results?.let{
                         if (results.isEmpty()) {
                             Log.i(TAG, "No Face found")
