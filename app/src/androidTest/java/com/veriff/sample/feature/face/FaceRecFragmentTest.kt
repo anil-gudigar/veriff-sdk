@@ -5,6 +5,7 @@ import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -21,6 +22,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
 
+
 @MediumTest
 @RunWith(AndroidJUnit4::class)
 @ExperimentalCoroutinesApi
@@ -35,16 +37,36 @@ class FaceRecFragmentTest {
 
     @Test
     fun test_DisplayedInUi() = runBlockingTest{
-        // GIVEN - Add active (incomplete) task to the DB
+        // GIVEN -
         val scenario = launchFragmentInContainer<FaceRecFragment>(Bundle(), R.style.Base_Theme_AppCompat)
         val navController = Mockito.mock(NavController::class.java)
         scenario.onFragment {
             Navigation.setViewNavController(it.view!!, navController)
         }
-        // WHEN - Details fragment launched to display task
+        // WHEN -
 
-        // THEN - Task details are displayed on the screen
-        // make sure that the title/description are both shown and correct
+        // THEN -
+        Espresso.onView(withId(R.id.veriffScannerView))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(withId(R.id.camera_selector))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(withId(R.id.camera_shutter))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
+
+
+    @Test
+    fun test_TakePicture() = runBlockingTest{
+        // GIVEN -
+        val scenario = launchFragmentInContainer<FaceRecFragment>(Bundle(), R.style.Base_Theme_AppCompat)
+        val navController = Mockito.mock(NavController::class.java)
+        scenario.onFragment {
+            Navigation.setViewNavController(it.view!!, navController)
+        }
+        // WHEN -
+        Espresso.onView(withId(R.id.camera_shutter)).perform(ViewActions.click())
+
+        // THEN -
         Espresso.onView(withId(R.id.veriffScannerView))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.camera_selector))
