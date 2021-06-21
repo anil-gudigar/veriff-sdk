@@ -5,7 +5,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.Face
 import com.veriff.sample.getOrAwaitValue
-import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository
+import com.veriff.sdk.identity.data.repository.local.face.FakeFaceRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers

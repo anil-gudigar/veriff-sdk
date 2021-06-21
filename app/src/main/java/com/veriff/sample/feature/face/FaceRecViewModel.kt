@@ -29,7 +29,7 @@ class FaceRecViewModel @Inject constructor(private val repository: IFaceRecognit
 
 @Suppress("UNCHECKED_CAST")
 class FaceRecViewModelFactory(
-    private val faceRecognitionRepository: FaceRecognitionRepository
+    private val faceRecognitionRepository: IFaceRecognitionRepository
 ) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>) =
         (FaceRecViewModel(faceRecognitionRepository) as T)

@@ -34,7 +34,7 @@ class TextRecViewModel @Inject constructor(private val repository: ITextRecognit
 
 @Suppress("UNCHECKED_CAST")
 class TextRecViewModelFactory(
-    private val textRepository: TextRecognitionRepository
+    private val textRepository: ITextRecognitionRepository
 ) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>) =
         (TextRecViewModel(textRepository) as T)

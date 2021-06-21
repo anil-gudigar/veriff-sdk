@@ -5,8 +5,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.veriff.sample.getOrAwaitValue
-import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository
-import com.veriff.sdk.identity.data.repository.FakeTextRecognitionRepository
+import com.veriff.sdk.identity.data.repository.local.text.FakeTextRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers
@@ -14,10 +13,8 @@ import org.hamcrest.MatcherAssert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
-import org.robolectric.RobolectricTestRunner
 
 /**
  * Text recognition repository test

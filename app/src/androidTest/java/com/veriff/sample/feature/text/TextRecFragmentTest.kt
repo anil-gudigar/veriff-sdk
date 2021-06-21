@@ -11,10 +11,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.veriff.sample.R
 import com.veriff.sample.ServiceLocator
-import com.veriff.sample.feature.face.FaceRecFragment
-import com.veriff.sample.sdk.identity.data.repository.FakeAndroidTextRecognitionRepository
+import com.veriff.sample.sdk.identity.data.repository.local.text.FakeAndroidTextRecognitionRepository
 import com.veriff.sdk.identity.data.repository.ITextRecognitionRepository
-import com.veriff.sdk.identity.data.repository.local.text.TextRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before

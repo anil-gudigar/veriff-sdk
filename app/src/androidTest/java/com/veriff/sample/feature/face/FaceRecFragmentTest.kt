@@ -12,7 +12,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.veriff.sample.R
 import com.veriff.sample.ServiceLocator
-import com.veriff.sample.sdk.identity.data.repository.FakeAndroidFaceRecognitionRepository
+import com.veriff.sample.sdk.identity.data.repository.local.face.FakeAndroidFaceRecognitionRepository
 import com.veriff.sdk.identity.data.repository.IFaceRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

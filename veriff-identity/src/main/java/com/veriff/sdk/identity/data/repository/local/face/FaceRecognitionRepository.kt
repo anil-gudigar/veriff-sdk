@@ -14,8 +14,7 @@ import com.veriff.sdk.identity.data.repository.IFaceRecognitionRepository
  *
  * @constructor Create empty Face recognition repository
  */
-class FaceRecognitionRepository :
-    IFaceRecognitionRepository {
+class FaceRecognitionRepository : IFaceRecognitionRepository {
     var options: FaceDetectorOptions
     var detector: FaceDetector
 

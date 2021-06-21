@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 
 class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
     private val faceRecViewModel by viewModels<FaceRecViewModel> {
-        FaceRecViewModelFactory((requireContext().applicationContext as SampleApp).faceRecognitionRepository as FaceRecognitionRepository)
+        FaceRecViewModelFactory((requireContext().applicationContext as SampleApp).faceRecognitionRepository)
     }
     private var _binding: FragmentFaceRecBinding? = null
 

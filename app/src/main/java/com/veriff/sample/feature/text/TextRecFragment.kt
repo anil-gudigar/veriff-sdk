@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 class TextRecFragment : Fragment(), IdentityCallback<Text> {
 
     private val textRecViewModel by viewModels<TextRecViewModel> {
-        TextRecViewModelFactory((requireContext().applicationContext as SampleApp).textRecognitionRepository as TextRecognitionRepository)
+        TextRecViewModelFactory((requireContext().applicationContext as SampleApp).textRecognitionRepository)
     }
     private var _binding: FragmentTextRecBinding? = null
 

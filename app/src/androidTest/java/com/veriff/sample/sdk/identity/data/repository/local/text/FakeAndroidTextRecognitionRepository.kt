@@ -1,4 +1,4 @@
-package com.veriff.sample.sdk.identity.data.repository
+package com.veriff.sample.sdk.identity.data.repository.local.text
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -10,29 +10,29 @@ import com.veriff.sdk.identity.data.repository.local.text.TextRecognitionReposit
 object ServiceLocator {
 
     @Volatile
-    lateinit var faceRecRepository: IFaceRecognitionRepository
+    var faceRecRepository: IFaceRecognitionRepository? = null
         @VisibleForTesting set
     @Volatile
-    lateinit var textRecRepository: ITextRecognitionRepository
+    var textRecRepository: ITextRecognitionRepository? = null
         @VisibleForTesting set
 
     fun provideFaceRecognitionRepository(context: Context): IFaceRecognitionRepository {
         synchronized(this) {
-            return faceRecRepository ?: createFaceRecognitionRepository()
+            return faceRecRepository ?: createFaceRecognitionRepository(context)
         }
     }
     fun provideTextRecognitionRepository(context: Context): ITextRecognitionRepository {
         synchronized(this) {
-            return textRecRepository ?: createTextRecognitionRepository()
+            return textRecRepository ?: createTextRecognitionRepository(context)
         }
     }
 
-    private fun createFaceRecognitionRepository(): FaceRecognitionRepository {
+    private fun createFaceRecognitionRepository(context: Context): FaceRecognitionRepository {
         faceRecRepository = FaceRecognitionRepository()
         return faceRecRepository as FaceRecognitionRepository
     }
 
-    private fun createTextRecognitionRepository(): TextRecognitionRepository {
+    private fun createTextRecognitionRepository(context: Context): TextRecognitionRepository {
         textRecRepository = TextRecognitionRepository()
         return textRecRepository as TextRecognitionRepository
     }
