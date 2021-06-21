@@ -58,7 +58,7 @@ class FaceRecViewModelTest {
         // Bitmap image
 
         // When adding a new task
-        //TODO:ML Context is null so added a need to use Robolectric to mock MLContext
+        //TODO:MLKitContext is null so added a need to use Robolectric to mock MLKitContext
 
         image?.let {
             value = faceRecViewModel.runFaceDetection(it).getOrAwaitValue()

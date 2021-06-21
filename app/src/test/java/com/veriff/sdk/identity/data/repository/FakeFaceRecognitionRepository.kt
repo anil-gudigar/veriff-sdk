@@ -16,7 +16,7 @@ class FakeFaceRecognitionRepository : IFaceRecognitionRepository {
     @Mock
     var detector: FaceDetector? = null
 
-    //TODO:ML Context is null so added a hack for text case ( need to use Robolectric to mock MLContext)
+    //TODO:MLKitContext is null so added a hack for text case ( need to use Robolectric to mock MLKitContext)
     override suspend fun detectInImage(image: InputImage): LiveData<List<Face>> {
         detector?.let {
             it.process(image)

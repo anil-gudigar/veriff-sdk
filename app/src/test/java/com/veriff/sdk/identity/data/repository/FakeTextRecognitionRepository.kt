@@ -16,7 +16,7 @@ class FakeTextRecognitionRepository : ITextRecognitionRepository {
     @Mock
     val text: Text?= null
 
-    //TODO:ML Context is null so added a hack for text case ( need to use Robolectric to mock MLContext)
+    //TODO:MLKitContext is null so added a hack for text case ( need to use Robolectric to mock MLKitContext)
     override suspend fun detectInImage(image: InputImage): LiveData<Text> {
         recognizer?.let {
             it.process(image)?.addOnSuccessListener { results ->
