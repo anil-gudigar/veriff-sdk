@@ -21,7 +21,7 @@ class FaceRecViewModel @Inject constructor(private val repository: IFaceRecognit
 
     suspend fun runFaceDetection(image: Bitmap) :LiveData<List<Face>>{
         val inputImage = InputImage.fromBitmap(image, 0)
-       return FaceRecognitionUseCase((repository as FaceRecognitionRepository)).execute(
+       return FaceRecognitionUseCase(repository).execute(
             FaceRecognitionUseCase.Params(inputImage)
         )
     }

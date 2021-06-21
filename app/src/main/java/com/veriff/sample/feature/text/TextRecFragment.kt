@@ -21,12 +21,13 @@ import com.veriff.sdk.core.app.VeriffApp
 import com.veriff.sdk.core.util.saveToGallery
 import com.veriff.sdk.identity.VeriffIdentityManager
 import com.veriff.sdk.identity.callback.IdentityCallback
+import com.veriff.sdk.identity.data.repository.local.text.TextRecognitionRepository
 import kotlinx.coroutines.launch
 
 class TextRecFragment : Fragment(), IdentityCallback<Text> {
 
     private val textRecViewModel by viewModels<TextRecViewModel> {
-        TextRecViewModelFactory((requireContext().applicationContext as SampleApp).textRecognitionRepository)
+        TextRecViewModelFactory((requireContext().applicationContext as SampleApp).textRecognitionRepository as TextRecognitionRepository)
     }
     private var _binding: FragmentTextRecBinding? = null
 

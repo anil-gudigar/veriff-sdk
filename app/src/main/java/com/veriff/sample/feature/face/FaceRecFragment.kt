@@ -21,11 +21,12 @@ import com.veriff.sdk.core.app.VeriffApp
 import com.veriff.sdk.core.util.saveToGallery
 import com.veriff.sdk.identity.VeriffIdentityManager
 import com.veriff.sdk.identity.callback.IdentityCallback
+import com.veriff.sdk.identity.data.repository.local.face.FaceRecognitionRepository
 import kotlinx.coroutines.launch
 
 class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
     private val faceRecViewModel by viewModels<FaceRecViewModel> {
-        FaceRecViewModelFactory((requireContext().applicationContext as SampleApp).faceRecognitionRepository)
+        FaceRecViewModelFactory((requireContext().applicationContext as SampleApp).faceRecognitionRepository as FaceRecognitionRepository)
     }
     private var _binding: FragmentFaceRecBinding? = null
 
