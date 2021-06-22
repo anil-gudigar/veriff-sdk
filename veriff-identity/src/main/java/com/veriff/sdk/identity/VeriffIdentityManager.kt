@@ -192,13 +192,12 @@ class VeriffIdentityManager<T>(
     /**
      * Run face contour detection
      *
-     * @param repository
      * @param mSelectedImage
      * @return
      */
-    suspend fun runFaceContourDetection(repository: FaceRecognitionRepository,mSelectedImage: Bitmap): LiveData<List<Face>> {
+    suspend fun runFaceContourDetection(mSelectedImage: Bitmap): LiveData<List<Face>> {
         val image = InputImage.fromBitmap(mSelectedImage, 0)
-        return FaceRecognitionUseCase(repository).execute(
+        return FaceRecognitionUseCase(FaceRecognitionRepository()).execute(
             FaceRecognitionUseCase.Params(image)
         )
     }
@@ -206,13 +205,12 @@ class VeriffIdentityManager<T>(
     /**
      * Run text recognition
      *
-     * @param recognitionRepository
      * @param mSelectedImage
      * @return
      */
-    suspend fun runTextRecognition(recognitionRepository: TextRecognitionRepository,mSelectedImage: Bitmap): LiveData<Text> {
+    suspend fun runTextRecognition(mSelectedImage: Bitmap): LiveData<Text> {
         val image = InputImage.fromBitmap(mSelectedImage, 0)
-        return TextRecognitionUseCase(recognitionRepository).execute(
+        return TextRecognitionUseCase(TextRecognitionRepository()).execute(
             TextRecognitionUseCase.Params(image)
         )
     }

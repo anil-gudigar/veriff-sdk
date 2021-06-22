@@ -5,6 +5,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.lifecycle.*
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.Face
+import com.google.mlkit.vision.text.Text
 import com.veriff.sdk.identity.VeriffIdentityManager
 import com.veriff.sdk.identity.data.repository.IFaceRecognitionRepository
 import com.veriff.sdk.identity.data.repository.local.face.FaceRecognitionRepository
@@ -17,14 +18,21 @@ class FaceRecViewModel @Inject constructor(private val repository: IFaceRecognit
     internal var checkPermission: ActivityResultLauncher<Array<String>>? = null
     var veriffIdentityManager: VeriffIdentityManager<List<Face>>? = null
     val visionType: VisionType = VisionType.Face
-    var faceRecData : LiveData<List<Face>> ? = MutableLiveData<List<Face>>()
+    var faceRecData : LiveData<List<Face>> = MutableLiveData<List<Face>>()
 
     suspend fun runFaceDetection(image: Bitmap) :LiveData<List<Face>>{
         val inputImage = InputImage.fromBitmap(image, 0)
         faceRecData = FaceRecognitionUseCase(repository).execute(
             FaceRecognitionUseCase.Params(inputImage)
         )
-       return faceRecData as LiveData<List<Face>>
+       return faceRecData
+    }
+    
+    suspend fun runFaceDetectionFromManager(image: Bitmap): LiveData<List<Face>>{
+        veriffIdentityManager?.let {
+            faceRecData = it.runFaceContourDetection(image)
+        }
+        return faceRecData
     }
 }
 

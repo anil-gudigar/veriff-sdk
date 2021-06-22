@@ -31,6 +31,13 @@ class TextRecViewModel @Inject constructor(private val repository: ITextRecognit
         )
         return textRecData
     }
+
+    suspend fun runTextRecognitionFromManager(image: Bitmap): LiveData<Text>{
+        veriffIdentityManager?.let {
+            textRecData = it.runTextRecognition(image)
+        }
+        return textRecData
+    }
 }
 
 @Suppress("UNCHECKED_CAST")
