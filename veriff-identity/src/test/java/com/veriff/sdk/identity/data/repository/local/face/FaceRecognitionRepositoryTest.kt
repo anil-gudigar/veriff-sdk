@@ -1,9 +1,9 @@
-package com.veriff.sample.feature.face
+package com.veriff.sdk.identity.data.repository.local.face
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.Face
-import com.veriff.sample.getOrAwaitValue
+import com.veriff.sdk.getOrAwaitValue
 import com.veriff.sdk.identity.data.repository.FakeFaceRecognitionRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
