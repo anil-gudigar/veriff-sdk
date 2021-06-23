@@ -92,6 +92,20 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
         }
     }
 
+    private fun textRecFromBitmapUsingManager(mSelectedImage: Bitmap?) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            mSelectedImage?.let {
+                textRecViewModel.runTextRecognitionFromManager(mSelectedImage).observe(viewLifecycleOwner, Observer { results ->
+                    if (results.text.isEmpty()) {
+                        Log.i(TAG, "No Text :")
+                    } else {
+                        Log.i(TAG, "Text :" + results.text)
+                    }
+                })
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -115,6 +129,7 @@ class TextRecFragment : Fragment(), IdentityCallback<Text> {
 
     override fun onTakePictureSuccess(bitmap: Bitmap?) {
         textRecFromBitmap(bitmap)
+        textRecFromBitmapUsingManager(bitmap)
         var uri: Uri? = null
         context?.let { uri = bitmap?.saveToGallery(it) }
         activity?.runOnUiThread(Runnable {

@@ -92,6 +92,22 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
         }
     }
 
+    private fun facRecFromBitmapUsingManager(mSelectedImage: Bitmap?) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            mSelectedImage?.let {
+                faceRecViewModel.runFaceDetectionFromManager(mSelectedImage).observe(viewLifecycleOwner, Observer { results ->
+                    results?.let{
+                        if (results.isEmpty()) {
+                            Log.i(TAG, "No Face found")
+                        } else {
+                            Log.i(TAG, "Face :" + results.size)
+                        }
+                    }
+                })
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -115,6 +131,7 @@ class FaceRecFragment : Fragment(), IdentityCallback<List<Face>> {
 
     override fun onTakePictureSuccess(bitmap: Bitmap?) {
         facRecFromBitmap(bitmap)
+        facRecFromBitmapUsingManager(bitmap)
         var uri:Uri? = null
         context?.let { uri = bitmap?.saveToGallery(it) }
         activity?.runOnUiThread(Runnable {
